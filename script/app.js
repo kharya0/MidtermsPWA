@@ -22,6 +22,27 @@ var instJr = new Instructor("JR", sched1, locPark, time1.getHours());
 var instKevin = new Instructor("Kevin", sched1, locSolibao, time1.getHours());
 var instSarah = new Instructor("Sarah", sched1, locSolibao, time1.getHours());
 var instArman = new Instructor("Arman", sched2, locRose, time2.getHours());
+var instGrace = new Instructor("Grace", sched2, locRose, time2.getHours());
+var instMarvin = new Instructor("Marvin", sched2, locRose, time2.getHours());
+var instJuvy = new Instructor("Juvy", sched2, locRose, time2.getHours());
+var instJoseph = new Instructor("Joseph", sched2, locRose, time2.getHours());
+
+function instString (i){
+    var intString = `
+        <div class="instructor">
+            <h1 class="instName">
+                ${i.name}
+            </h1>
+            <h2 class="instSched">
+                ${i.schedule}
+            </h2>
+            <h2 id="instLoc">
+                ${i.location}
+            </h2>
+        </div>
+`
+}
+
 
 
 
