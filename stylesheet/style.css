@@ -1,23 +1,50 @@
 body {
-    background-color: #ffafdc;
+    color: #5d001e;
+    background-color: #e3e2df;
+    font-family: Evolve;
+    background: url(/stylesheet/images/pinkbaguio.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+header{
+    padding-top: 50px;
 }
 
 header h1 {
+    font-family: ShineBright;
+    font-size: 80px;
+    text-align: center;
+    margin: 10px;
+}
+
+header h2 {
+    text-align: center;
+    font-size: 50px;
+    padding: 0px;
+    margin: 0px;
+}
+
+main {
+    padding: 20px;
     text-align: center;
 }
 
 #buttons-container {
+    display: block;
     height: auto;
-    width: auto;
-    display: grid;
-    grid-template-columns: auto;
+    width: 50%;
+    margin: auto;
+    padding-top: 20px;
 }
-
 .main-buttons {
-    background-color: white;
-    color: black;
-    padding: 14px 20px;
-    margin: 8px 0;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    margin: auto;
     border: none;
     cursor: pointer;
     width: 100%;
@@ -27,42 +54,31 @@ header h1 {
     opacity: 0.8;
 }
 
-.form-container {
-    text-align: center;
-    padding: 16px;
-}
-
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    box-sizing: border-box;
-}
-
 button {
-    background-color: white;
+    background-color: #ee4c7c;
     color: black;
     padding: 14px 20px;
     margin: 8px 0;
-    border: none;
     cursor: pointer;
     width: 100%;
+    font-family: EvolveMed;
 }
 
 button:hover {
     opacity: 0.8;
 }
 
-input[type=button]{
-font-size: 16px;
-background: white;
-border: 1px solid white;
-color: black;
-font-weight: bold;
-cursor: pointer;
-width: 100%;
-border-radius: 5px;
-padding: 10px 0;
-outline:none;
+@font-face {
+    font-family: ShineBright;
+    src: url("fonts/Shine Bright - Demo.ttf");
+}
+
+@font-face {
+    font-family: Evolve;
+    src: url("fonts/MADE Evolve Sans Regular (PERSONAL USE).otf");
+}
+
+@font-face {
+    font-family: EvolveMed;
+    src: url("fonts/MADE Evolve Sans Medium (PERSONAL USE).otf");
 }
