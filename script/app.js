@@ -29,19 +29,24 @@ var instJoseph = new Instructor("Joseph", sched2, locRose, time2.getHours());
 
 function instString (i){
     var intString = `
-        <div class="instructor">
-            <h1 class="instName">
-                ${i.name}
-            </h1>
-            <h2 class="instSched">
-                ${i.schedule}
-            </h2>
-            <h2 id="instLoc">
-                ${i.location}
-            </h2>
-        </div>
+        <li>
+            <div class="instructor">
+                <h1 class="instName">
+                    ${i.name}
+                </h1>
+                <h2 class="instSched">
+                    ${i.schedule}
+                </h2>
+                <h2 id="instLoc">
+                    ${i.location}
+                </h2>
+            </div>
+        </li>
 `
 }
+
+var ul = document.getElementById('instList');
+ul.insertAdjacentHTML('afterbegin', instString(instJr));
 
 
 
