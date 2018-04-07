@@ -7,10 +7,11 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    margin: 0;
 }
 
 
-header{
+header {
     padding-top: 50px;
 }
 
@@ -28,6 +29,11 @@ header h2 {
     margin: 0px;
 }
 
+header p {
+    text-align: center;
+    font-size: 20px;
+}
+
 main {
     padding: 20px;
     text-align: center;
@@ -40,6 +46,7 @@ main {
     margin: auto;
     padding-top: 20px;
 }
+
 .main-buttons {
     color: white;
     font-size: 20px;
@@ -83,25 +90,29 @@ button:hover {
     src: url("fonts/MADE Evolve Sans Medium (PERSONAL USE).otf");
 }
 
+.instContainer {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+}
 
+ul {
+    list-style: none;
+    width: 50%;
+    text-align: center;
+    padding: 10px;
+    border-style: dashed;
+    margin: auto;
+}
 
+ul h2 {
+    font-family: EvolveMed;
+}
 
+li {
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+li:hover{
+    filter: invert();
+}
