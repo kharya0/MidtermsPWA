@@ -102,7 +102,6 @@ ul {
     width: 50%;
     text-align: center;
     padding: 10px;
-    border-style: dashed;
     margin: auto;
 }
 
@@ -110,9 +109,5 @@ ul h2 {
     font-family: EvolveMed;
 }
 
-li {
-}
 
-li:hover{
-    filter: invert();
-}
+

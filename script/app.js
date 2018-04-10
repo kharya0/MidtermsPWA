@@ -38,12 +38,16 @@ var instJoseph = new Instructor("Joseph", sched2, locRose, hour2, min2);
 var instArray = [instMel, instXylon, instJules, instFrank, instJr, instKevin, instSarah, instArman, instGrace, instMarvin, instJuvy, instJoseph];
 
 var ul = document.getElementById('instList');
-console.log(ul);
 
 function instStrings() {
     for (let i = 0; i < instArray.length; i++) {
         var li = document.createElement('li');
         li.id = `inst${instArray[i].name}`;
+        li.className = "inst";
+        var button = document.createElement('button');
+        button.id = `inst{instArray[i].name}Button`;
+        button.className = "instButton";
+        button.addEventListener('click', test);
         var h2 = document.createElement('h2');
         h2.innerHTML = instArray[i].name;
         h2.classList.add('instName');
@@ -57,10 +61,16 @@ function instStrings() {
         li.appendChild(h2);
         li.appendChild(h3);
         li.appendChild(h3_1);
-        ul.appendChild(li);
-        console.log('asdf');
+        button.appendChild(li);
+        ul.appendChild(button);
     }
 }
 
 instStrings();
+
+function test(){
+    console.log("test");
+}
+
+
 
