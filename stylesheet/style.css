@@ -90,7 +90,7 @@ button:hover {
     src: url("fonts/MADE Evolve Sans Medium (PERSONAL USE).otf");
 }
 
-.instContainer {
+.instContainer .dropdownContainer{
     width: 100%;
     height: auto;
     display: block;
@@ -108,6 +108,7 @@ ul {
 ul h2 {
     font-family: EvolveMed;
 }
+
 
 
 
