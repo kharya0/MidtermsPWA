@@ -4,19 +4,19 @@ var locSkating = "Near the Skating Rink";
 var locPark = "Near the Children's Park";
 var locSolibao = "Near Solibao";
 var locRose = "Near the Rose Garden";
+var today = new Date();
 var date1 = new Date("April 6, 2018 6:00:00");
+date1.setDate(today.getDate()+1);
 var date2 = new Date("April 6, 2018 7:00:00");
+date2.setDate(today.getDate()+1);
 var time1 = date1.getTime();
 var time2 = date2.getTime();
-var currentDate = new Date();
-var currentTime = currentDate.getTime();
 
-function Instructor(name, schedule, location, hour, min) {
+function Instructor(name, schedule, location, time) {
     this.name = name;
     this.schedule = schedule;
     this.location = location;
-    this.hour = hour;
-    this.min = min;
+    this.time = time;
 }
 
 var instMel = new Instructor("Mel", sched1, locSkating, time1);
@@ -41,16 +41,19 @@ function instStrings() {
         var li = document.createElement('li');
         li.id = `inst${instArray[i].name}`;
         li.className = "inst";
+
         var button = document.createElement('button');
-        button.id = `inst{instArray[i].name}Button`;
+        button.id = `inst${instArray[i].name}Button`;
         button.className = "instButton";
-        button.addEventListener('click', test);
+
         var h2 = document.createElement('h2');
         h2.innerHTML = instArray[i].name;
         h2.classList.add('instName');
+
         var h3 = document.createElement('h3');
         h3.innerHTML = instArray[i].schedule;
         h3.classList.add('instSched');
+
         var h3_1 = document.createElement('h3');
         h3_1.innerHTML = instArray[i].location;
         h3_1.classList.add('instLoc');
@@ -60,14 +63,23 @@ function instStrings() {
         li.appendChild(h3_1);
         button.appendChild(li);
         ul.appendChild(button);
+        
+        button.onclick = function () {
+            computeTimeLeft(instArray[i]);
+        }
     }
 }
 
 instStrings();
 
-function test(){
-    console.log("test");
+function computeTimeLeft(instArray){
+    var currentTime = new Date().getTime();
+    var interval = instArray.time - currentTime;
+    var hours = Math.floor((interval % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((interval % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((interval % (1000 * 60)) / 1000);
+    console.log(instArray);
+    console.log(hours + 'h ' + minutes + 'm ' + seconds + 's ');
 }
-
 
 
