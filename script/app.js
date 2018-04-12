@@ -68,9 +68,6 @@ function instStrings() {
         li.id = `inst${instArray[i].name}`;
         li.className = "inst";
 
-        var a = document.createElement('a');
-        //a.href = "../html/countdown.html";
-
         var button = document.createElement('button');
         button.id = `inst${instArray[i].name}Button`;
         button.className = "instButton";
@@ -91,8 +88,7 @@ function instStrings() {
         li.appendChild(h3);
         li.appendChild(h3_1);
         button.appendChild(li);
-        a.appendChild(button);
-        ul.appendChild(a);
+        ul.appendChild(button);
 
         button.onclick = function () {
             computeTimeLeft(instArray[i]);
@@ -104,7 +100,7 @@ if (document.getElementById('instContainer')) {
     instStrings();
 }
 
-var countdown = document.getElementById('countdown');
+var countdown = document.getElementById('chosen');
 var countdownArray = [];
 
 function computeTimeLeft(instArray) {
@@ -125,7 +121,6 @@ function computeTimeLeft(instArray) {
 
     countdownArray.push(instArray);
 }
-console.log(countdownArray[0]);
 
 for (let i = 0; i < countdownArray[i]; i++) {
     var ul = document.createElement('ul');
@@ -156,6 +151,7 @@ for (let i = 0; i < countdownArray[i]; i++) {
     li.appendChild(h3);
     li.appendChild(h3_1);
     li.appendChild(h3_2);
+    li.appendChild(h2_1);
     ul.appendChild(li);
     countdown.appendChild(ul);
 }
