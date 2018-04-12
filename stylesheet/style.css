@@ -52,29 +52,57 @@ main {
     font-size: 20px;
     padding: 10px;
     margin: auto;
-    border: none;
+    border: 2px #e34d79 solid;
     cursor: pointer;
     width: 100%;
+    background-color: #ee4c7c;
 }
 
 .main-buttons:hover {
     opacity: 0.8;
 }
 
+#schedButton{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 button {
-    background-color: #ee4c7c;
     color: black;
     padding: 14px 20px;
     margin: 8px 0;
     cursor: pointer;
     width: 100%;
     font-family: EvolveMed;
+    border: none;
+    background-color: none;
 }
 
 button:hover {
     opacity: 0.8;
 }
 
+nav{
+    position: fixed;
+}
+
+nav li a #home-button + #schedule-button{
+    width: auto;
+    height: auto;
+    background-color: none;
+    border: none;
+}
+
+nav p{
+    text-align: center;
+    margin: 1px;
+    padding: 1px;
+    color: #b98191;
+}
+
+nav ul{
+    width:100%;
+}
 @font-face {
     font-family: ShineBright;
     src: url("fonts/Shine Bright - Demo.ttf");
