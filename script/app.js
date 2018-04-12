@@ -35,25 +35,28 @@ date1.setDate(dateSched.getDate());
 var date2 = new Date("April 6, 2018 7:00:00");
 date2.setDate(dateSched.getDate());
 
-function Instructor(name, schedule, place, date) {
+var countdown = "";
+
+function Instructor(name, schedule, place, date, countdown) {
     this.name = name;
     this.schedule = schedule;
     this.place = place;
     this.date = date;
+    this.countdown = countdown;
 }
 
-var instMel = new Instructor("Mel", sched1, locSkating, date1);
-var instXylon = new Instructor("Xylon", sched1, locSkating, date1);
-var instJules = new Instructor("Jules", sched1, locSkating, date1);
-var instFrank = new Instructor("Frank", sched1, locPark, date1);
-var instJr = new Instructor("JR", sched1, locPark, date1);
-var instKevin = new Instructor("Kevin", sched1, locSolibao, date1);
-var instSarah = new Instructor("Sarah", sched1, locSolibao, date1);
-var instArman = new Instructor("Arman", sched2, locRose, date2);
-var instGrace = new Instructor("Grace", sched2, locRose, date2);
-var instMarvin = new Instructor("Marvin", sched2, locRose, date2);
-var instJuvy = new Instructor("Juvy", sched2, locRose, date2);
-var instJoseph = new Instructor("Joseph", sched2, locRose, date2);
+var instMel = new Instructor("Mel", sched1, locSkating, date1, "");
+var instXylon = new Instructor("Xylon", sched1, locSkating, date1, "");
+var instJules = new Instructor("Jules", sched1, locSkating, date1, "");
+var instFrank = new Instructor("Frank", sched1, locPark, date1, "");
+var instJr = new Instructor("JR", sched1, locPark, date1, "");
+var instKevin = new Instructor("Kevin", sched1, locSolibao, date1, "");
+var instSarah = new Instructor("Sarah", sched1, locSolibao, date1, "");
+var instArman = new Instructor("Arman", sched2, locRose, date2, "");
+var instGrace = new Instructor("Grace", sched2, locRose, date2, "");
+var instMarvin = new Instructor("Marvin", sched2, locRose, date2, "");
+var instJuvy = new Instructor("Juvy", sched2, locRose, date2, "");
+var instJoseph = new Instructor("Joseph", sched2, locRose, date2, "");
 
 var instArray = [instMel, instXylon, instJules, instFrank, instJr, instKevin, instSarah, instArman, instGrace, instMarvin, instJuvy, instJoseph];
 
@@ -66,7 +69,7 @@ function instStrings() {
         li.className = "inst";
 
         var a = document.createElement('a');
-        a.href = "../html/countdown.html";
+        //a.href = "../html/countdown.html";
 
         var button = document.createElement('button');
         button.id = `inst${instArray[i].name}Button`;
@@ -104,14 +107,6 @@ if (document.getElementById('instContainer')) {
 var countdown = document.getElementById('countdown');
 var countdownArray = [];
 
-function Timer(name, place, date, time, countdown) {
-    this.name = name;
-    this.place = place;
-    this.date = date;
-    this.time = time;
-    this.countdown = countdown;
-}
-
 function computeTimeLeft(instArray) {
     var currentTime = new Date();
     var arrayDate = instArray.date;
@@ -121,18 +116,18 @@ function computeTimeLeft(instArray) {
     var days = Math.floor(interval / (1000 * 60 * 60 * 24));
     var hours = Math.floor((interval % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutes = Math.floor((interval % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((interval % (1000 * 60)) / 1000);
-    console.log(days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's ');
+    
+    instArray.countdown = days + "d " + hours + "h " + minutes + "m ";
+    
+    console.log(days + 'd ' + hours + 'h ' + minutes + 'm ');
     console.log(arrayDate);
     console.log(instArray.name);
 
-    var newSched = new Timer(instArray.name, instArray.place, instArray.date, instArray.schedule, (days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's'));
-
-    countdownArray.push(newSched);
+    countdownArray.push(instArray);
 }
 console.log(countdownArray[0]);
 
-for (var i = 0; i < countdownArray[i]; i++) {
+for (let i = 0; i < countdownArray[i]; i++) {
     var ul = document.createElement('ul');
     ul.id = "schedList";
 
