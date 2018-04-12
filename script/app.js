@@ -23,7 +23,10 @@ var locPark = "Near the Children's Park";
 var locSolibao = "Near Solibao";
 var locRose = "Near the Rose Garden";
 
-var chosenDay = document.getElementById("date").value;
+var chosenDay;
+if (document.getElementById("date")) {
+    chosenDay = document.getElementById("date").value;
+}
 var dateSched = new Date(chosenDay);
 
 var date1 = new Date("April 6, 2018 6:00:00");
@@ -31,9 +34,6 @@ date1.setDate(dateSched.getDate());
 
 var date2 = new Date("April 6, 2018 7:00:00");
 date2.setDate(dateSched.getDate());
-
-//var time1 = date1.getTime();
-//var time2 = date2.getTime();
 
 function Instructor(name, schedule, place, date) {
     this.name = name;
@@ -66,7 +66,7 @@ function instStrings() {
         li.className = "inst";
 
         var a = document.createElement('a');
-        //a.href = "../html/countdown.html";
+        a.href = "../html/countdown.html";
 
         var button = document.createElement('button');
         button.id = `inst${instArray[i].name}Button`;
@@ -101,7 +101,16 @@ if (document.getElementById('instContainer')) {
     instStrings();
 }
 
-var countdownDiv = document.getElementById('countdown');
+var countdown = document.getElementById('countdown');
+var countdownArray = [];
+
+function Timer(name, place, date, time, countdown) {
+    this.name = name;
+    this.place = place;
+    this.date = date;
+    this.time = time;
+    this.countdown = countdown;
+}
 
 function computeTimeLeft(instArray) {
     var currentTime = new Date();
@@ -109,23 +118,49 @@ function computeTimeLeft(instArray) {
     var chosenDate = document.getElementById("date").value;
     arrayDate.setDate(chosenDate);
     var interval = arrayDate - currentTime;
+    var days = Math.floor(interval / (1000 * 60 * 60 * 24));
     var hours = Math.floor((interval % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutes = Math.floor((interval % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((interval % (1000 * 60)) / 1000);
-    console.log(hours + 'h ' + minutes + 'm ' + seconds + 's ');
+    console.log(days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's ');
     console.log(arrayDate);
+    console.log(instArray.name);
 
-    var countdownArray = [];
-
-    function Timer(name, place, date, time, countdown) {
-        this.name = name;
-        this.place = place;
-        this.date = date;
-        this.time = time;
-        this.countdown = countdown;
-    }
-    var newSched = new Timer(instArray.name, instArray.place, arrayDate, (hours + 'h ' + minutes + 'm ' + seconds + 's'));
+    var newSched = new Timer(instArray.name, instArray.place, instArray.date, instArray.schedule, (days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's'));
 
     countdownArray.push(newSched);
-    console.log(countdownArray.name, countdownArray.place, countdownArray.date, countdownArray.time, countdownArray.countdown);
+}
+console.log(countdownArray[0]);
+
+for (var i = 0; i < countdownArray[i]; i++) {
+    var ul = document.createElement('ul');
+    ul.id = "schedList";
+
+    var li = document.createElement('li');
+    li.className = "indivSched";
+
+    var h2 = document.createElement('h2');
+    h2.innerHTML = countdownArray[i].name;
+    h2.classList.add('instName');
+
+    var h3 = document.createElement('h3');
+    h3_1.innerHTML = countdownArray[i].place;
+    h3_1.classList.add('instLoc');
+
+    var h3_1 = document.createElement('h3');
+    h3.innerHTML = countdownArray[i].schedule;
+    h3.classList.add('instSched');
+
+    var h3_2 = document.createElement('h3');
+    h3.innerHTML = countdownArray[i].date;
+
+    var h2_1 = document.createElement('h2');
+    h2_1.innerHTML = countdownArray[i].countdown;
+
+    li.appendChild(h2);
+    li.appendChild(h3);
+    li.appendChild(h3_1);
+    li.appendChild(h3_2);
+    ul.appendChild(li);
+    countdown.appendChild(ul);
 }
