@@ -100,7 +100,6 @@ if (document.getElementById('instContainer')) {
     instStrings();
 }
 
-var countdown = document.getElementById('chosen');
 var countdownArray = [];
 
 function computeTimeLeft(instArray) {
@@ -120,38 +119,38 @@ function computeTimeLeft(instArray) {
     console.log(instArray.name);
 
     countdownArray.push(instArray);
+    console.log(countdownArray);
 }
 
-for (let i = 0; i < countdownArray[i]; i++) {
-    var ul = document.createElement('ul');
-    ul.id = "schedList";
+var ul_1 = document.getElementById('scheds');
 
-    var li = document.createElement('li');
-    li.className = "indivSched";
+function displayArraySched() {
+    for (let i = 0; i < countdownArray[i]; i++) {
+        var li = document.createElement('li');
+        li.className = "indivSched";
 
-    var h2 = document.createElement('h2');
-    h2.innerHTML = countdownArray[i].name;
-    h2.classList.add('instName');
+        var h2 = document.createElement('h2');
+        h2.innerHTML = countdownArray[i].name;
 
-    var h3 = document.createElement('h3');
-    h3_1.innerHTML = countdownArray[i].place;
-    h3_1.classList.add('instLoc');
+        var h3 = document.createElement('h3');
+        h3_1.innerHTML = countdownArray[i].place;
 
-    var h3_1 = document.createElement('h3');
-    h3.innerHTML = countdownArray[i].schedule;
-    h3.classList.add('instSched');
+        var h3_1 = document.createElement('h3');
+        h3.innerHTML = countdownArray[i].schedule;
 
-    var h3_2 = document.createElement('h3');
-    h3.innerHTML = countdownArray[i].date;
+        var h3_2 = document.createElement('h3');
+        h3.innerHTML = countdownArray[i].date;
 
-    var h2_1 = document.createElement('h2');
-    h2_1.innerHTML = countdownArray[i].countdown;
+        var h2_1 = document.createElement('h2');
+        h2_1.innerHTML = countdownArray[i].countdown;
 
-    li.appendChild(h2);
-    li.appendChild(h3);
-    li.appendChild(h3_1);
-    li.appendChild(h3_2);
-    li.appendChild(h2_1);
-    ul.appendChild(li);
-    countdown.appendChild(ul);
+        li.appendChild(h2);
+        li.appendChild(h3);
+        li.appendChild(h3_1);
+        li.appendChild(h3_2);
+        li.appendChild(h2_1);
+        ul.appendChild(li);
+    }
 }
+
+displayArraySched();
