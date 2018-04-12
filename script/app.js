@@ -2,17 +2,19 @@ var dateArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 
 
 function selectDate() {
     var select = document.getElementById('date');
-    
-    for (let i = 0; i < dateArray.length; i++){
+
+    for (let i = 0; i < dateArray.length; i++) {
         var option = document.createElement('option');
         option.innerHTML = dateArray[i];
         option.value = dateArray[i];
-        
+
         select.appendChild(option);
     }
 }
 
-selectDate();
+if (document.getElementById('dropdownContainer')) {
+    selectDate();
+}
 
 var sched1 = "6:00 - 7:00";
 var sched2 = "7:00 - 8:00";
@@ -62,7 +64,7 @@ function instStrings() {
         var li = document.createElement('li');
         li.id = `inst${instArray[i].name}`;
         li.className = "inst";
-        
+
         var a = document.createElement('a');
         //a.href = "../html/countdown.html";
 
@@ -88,18 +90,20 @@ function instStrings() {
         button.appendChild(li);
         a.appendChild(button);
         ul.appendChild(a);
-        
+
         button.onclick = function () {
             computeTimeLeft(instArray[i]);
         }
     }
 }
 
-instStrings();
+if (document.getElementById('instContainer')) {
+    instStrings();
+}
 
 var countdownDiv = document.getElementById('countdown');
 
-function computeTimeLeft(instArray){
+function computeTimeLeft(instArray) {
     var currentTime = new Date();
     var arrayDate = instArray.date;
     var chosenDate = document.getElementById("date").value;
@@ -110,17 +114,18 @@ function computeTimeLeft(instArray){
     var seconds = Math.floor((interval % (1000 * 60)) / 1000);
     console.log(hours + 'h ' + minutes + 'm ' + seconds + 's ');
     console.log(arrayDate);
-    
+
     var countdownArray = [];
-    
-    function timer(name, place, date, time, countdown) {
+
+    function Timer(name, place, date, time, countdown) {
         this.name = name;
         this.place = place;
-        this.date = place;
+        this.date = date;
         this.time = time;
         this.countdown = countdown;
     }
-    
+    var newSched = new Timer(instArray.name, instArray.place, arrayDate, (hours + 'h ' + minutes + 'm ' + seconds + 's'));
+
+    countdownArray.push(newSched);
+    console.log(countdownArray.name, countdownArray.place, countdownArray.date, countdownArray.time, countdownArray.countdown);
 }
-
-
