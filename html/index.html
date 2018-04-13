@@ -15,12 +15,12 @@
 
     <nav>
         <ul>
-            <li><a href="index.html"><button id="home-button"><img src="../stylesheet/images/home-icon.png"><p>Home</p></button></a></li>
+            <li><a href="#main-content"><button id="home-button"><img src="../stylesheet/images/home-icon.png"><p>Home</p></button></a></li>
             <li><a href="#schedule-content"><button id="schedule-button"><img src="../stylesheet/images/schedule-icon.png"><p>My Schedule</p></button></a></li>
         </ul>
     </nav>
 
-    <div class="main-content">
+    <div id="main-content">
         <header>
             <h1>Baguio Zumba Sessions</h1>
             <h2>Burnham Park</h2>
@@ -32,6 +32,7 @@
                 <br>Dance for a happier and healthier you! Click on the button below to view daily schedule. Find out your Zumba location and instructor's name.
                 <br>Bookmark the ZumBaguio website to track your schedule!
             </p>
+            
             <div id="buttons-container">
                 <a href="#schedule-content">
                 <button class="main-buttons" id="dancerButton">View Daily Schedule</button>
@@ -48,13 +49,17 @@
             <h1>Schedule for Today</h1>
             <p>Choose a schedule and know how much time you have left before that class.</p>
         </header>
+        
         <div id="dropdownContainer">
+            <p>Select the date of your prefered Zumba session.</p>
             <select id="date"></select>
         </div>
+        
         <div id="instContainer">
             <ul id="instList">
             </ul>
         </div>
+        
     </div>
 
 

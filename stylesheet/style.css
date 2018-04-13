@@ -1,3 +1,4 @@
+
 body {
     color: #5d001e;
     background-color: #e3e2df;
@@ -15,7 +16,8 @@ header {
     padding-top: 50px;
 }
 
-header h1, #mySchedule {
+header h1,
+#mySchedule {
     font-family: ShineBright;
     font-size: 80px;
     text-align: center;
@@ -42,7 +44,7 @@ main {
 #buttons-container {
     display: block;
     height: auto;
-    width: 50%;
+    width: 40%;
     margin: auto;
     padding-top: 20px;
 }
@@ -62,47 +64,48 @@ main {
     opacity: 0.8;
 }
 
-#schedButton{
+#schedButton {
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
 button {
-    color: black;
+    color: white;
     padding: 14px 20px;
-    margin: 8px 0;
+    margin: 15px;
     cursor: pointer;
     width: 100%;
     font-family: EvolveMed;
-    border: none;
-    background-color: none;
+    border: 1px #eabdca solid;
+    background-color: #ee4c7c;
 }
 
 button:hover {
     opacity: 0.8;
 }
 
-nav{
+nav {
     position: fixed;
 }
 
-nav li a #home-button + #schedule-button{
-    width: auto;
-    height: auto;
-    background-color: none;
-    border: none;
+html body nav ul li a #home-button,
+#schedule-button {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #d8cdcd;
 }
 
-nav p{
+nav p {
     text-align: center;
     margin: 1px;
     padding: 1px;
-    color: #b98191;
+    color: white;
 }
 
-nav ul{
-    width:100%;
+nav ul {
+    width: auto;
 }
+
 @font-face {
     font-family: ShineBright;
     src: url("fonts/Shine Bright - Demo.ttf");
@@ -118,16 +121,15 @@ nav ul{
     src: url("fonts/MADE Evolve Sans Medium (PERSONAL USE).otf");
 }
 
-.instContainer .dropdownContainer{
+#instContainer, #dropdownContainer {
     width: 100%;
     height: auto;
-    display: block;
     margin: auto;
 }
 
 ul {
     list-style: none;
-    width: 50%;
+    width: 40%;
     text-align: center;
     padding: 10px;
     margin: auto;
@@ -137,6 +139,24 @@ ul h2 {
     font-family: EvolveMed;
 }
 
+#instList {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 10px;
+    padding: 5px;
+}
 
+#instList button {
+    width: 100%;
+}
 
-
+#instList button li {
+    width: 100%;
+}
+div { margin: 50px; }
+div #dropdownContainer{
+    width: 100%;
+    margin: auto;
+    font-family: Evolve;
+    
+}
