@@ -78,6 +78,7 @@ button {
     font-family: EvolveMed;
     border: 1px white solid;
     background-color: #ffb6c1;
+    border-radius: 10px;
 }
 
 button:hover {
@@ -99,7 +100,7 @@ nav p {
     text-align: center;
     margin: 1px;
     padding: 1px;
-    color: white;
+    color: #985e6d;
 }
 
 nav ul {
@@ -157,7 +158,7 @@ ul h2 {
 #instList button {
     width: 100%;
     margin: auto;
-    height: 100%s
+    height: 100%;
 }
 
 div { margin: 20px; }
@@ -174,3 +175,25 @@ select{
 
 }
 
+#scheds p{
+    font-family: Evolve;
+    margin: 0;
+    padding: 0;
+    font-size: 15px; 
+}
+
+#scheds ul{
+    background-color: #d8cdcd;
+    margin: 5px auto 5px auto;
+    padding: 2px;
+    width: 50%;
+}
+
+error {
+    font-family: Evolve;
+    font-size: 15px; 
+    background-color: #d8cdcd;
+    margin: 5px auto 5px auto;
+    padding: 2px;
+    width: 50%;
+}

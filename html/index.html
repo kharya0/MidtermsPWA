@@ -16,7 +16,8 @@
     <nav>
         <ul>
             <li><a href="#main-content"><button id="home-button"><img src="../stylesheet/images/home-icon.png"><p>Home</p></button></a></li>
-            <li><a href="#schedule-content"><button id="schedule-button"><img src="../stylesheet/images/schedule-icon.png"><p>My Schedule</p></button></a></li>
+            <li><a href="#schedule-content"><button id="schedule-button"><img src="../stylesheet/images/daily-icon.png"><p>Daily Schedule</p></button></a></li>
+            <li><a href="#mySchedule"><button id="schedule-button"><img src="../stylesheet/images/schedule-icon.png"><p>My Schedule</p></button></a></li>
         </ul>
     </nav>
 
@@ -32,7 +33,7 @@
                 <br>Dance for a happier and healthier you! Click on the button below to view daily schedule. Find out your Zumba location and instructor's name.
                 <br>Bookmark the ZumBaguio website to track your schedule!
             </p>
-            
+
             <div id="buttons-container">
                 <a href="#schedule-content">
                 <button class="main-buttons" id="dancerButton">View Daily Schedule</button>
@@ -49,24 +50,24 @@
             <h1>Schedule for Today</h1>
             <p>Choose a schedule and know how much time you have left before your chosen class starts.</p>
         </header>
-        
+
         <div id="dropdownContainer">
             <p>Select the date of your prefered Zumba session.</p>
             <select id="date"></select>
         </div>
-        
-        <div id="instContainer">
+
+        <div id="instContainer" onclick=" displayArraySched()">
             <ul id="instList">
             </ul>
         </div>
-        
+
     </div>
-    
+
     <div id="mySchedule">
         <header>
             <h1>My Schedule</h1>
         </header>
-        <div id="scheds"></div>
+        <div id="scheds"><error id="scheds-p"></error></div>
     </div>
 
 
