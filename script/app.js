@@ -127,24 +127,21 @@ var div_1 = document.getElementById('scheds');
 
 function displayArraySched() {
     for (let i = 0; i < countdownArray.length; i++) {
-        var ul = document.createElement('ul');
-        
-        var li = document.createElement('li');
-        li.className = "indivSched";
+        var div = document.createElement('div');
 
-        var h2 = document.createElement('h2');
+        var h2 = document.createElement('p');
         h2.innerHTML = countdownArray[i].name;
 
-        var h3 = document.createElement('h3');
+        var h3 = document.createElement('p');
         h3.innerHTML = countdownArray[i].place;
 
-        var h3_1 = document.createElement('h3');
+        var h3_1 = document.createElement('p');
         h3_1.innerHTML = countdownArray[i].schedule;
 
-        var h3_2 = document.createElement('h3');
+        var h3_2 = document.createElement('p');
         h3_2.innerHTML = countdownArray[i].date;
 
-        var h2_1 = document.createElement('h2');
+        var h2_1 = document.createElement('p');
         h2_1.innerHTML = countdownArray[i].countdown;
 
         li.appendChild(h2);

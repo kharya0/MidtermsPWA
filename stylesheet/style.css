@@ -128,8 +128,10 @@ nav ul {
 }
 
 ul {
+    display: grid;
+    grid-template-columns: auto;
     list-style: none;
-    width: 40%;
+    width: 100%;
     text-align: center;
     padding: 10px;
     margin: auto;
@@ -142,18 +144,22 @@ ul h2 {
 #instList {
     display: grid;
     grid-template-columns: auto auto auto;
-    grid-column-gap: 10px;
     padding: 5px;
+    width: auto;
+    margin: 0;
+}
+
+#schedule-content{
+    width: auto;
 }
 
 #instList button {
     width: 100%;
+    margin: auto;
+    height: 100%s
 }
 
-#instList button li {
-    width: 100%;
-}
-div { margin: 50px; }
+div { margin: 20px; }
 div #dropdownContainer{
     width: 100%;
     margin: auto;
