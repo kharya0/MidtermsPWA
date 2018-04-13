@@ -112,9 +112,9 @@ function computeTimeLeft(instArray) {
     var hours = Math.floor((interval % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutes = Math.floor((interval % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((interval % (1000 * 60)) / 1000);
-    
-    instArray.countdown = days + "d " + hours + "h " + minutes + "m " + seconds +"s";
-    
+
+    instArray.countdown = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+
     console.log(days + 'd ' + hours + 'h ' + minutes + 'm ');
     console.log(arrayDate);
     console.log(instArray.name);
@@ -123,9 +123,38 @@ function computeTimeLeft(instArray) {
     console.log(countdownArray);
 }
 
-var div_1 = document.getElementById('scheds');
+var ul_1 = document.getElementById('schedList');
 
 function displayArraySched() {
+    var x = countdownArray.length;
+    var y = x - 1;
+    console.log(countdownArray[y].name);
+
+    var li = document.createElement('li');
+
+    var h2 = document.createElement('p');
+    h2.innerHTML = countdownArray[y].name;
+
+    var h3 = document.createElement('p');
+    h3.innerHTML = countdownArray[y].place;
+
+    var h3_1 = document.createElement('p');
+    h3_1.innerHTML = countdownArray[y].schedule;
+
+    var h3_2 = document.createElement('p');
+    h3_2.innerHTML = countdownArray[y].date;
+
+    var h2_1 = document.createElement('p');
+    h2_1.innerHTML = countdownArray[y].countdown;
+
+    li.appendChild(h2);
+    li.appendChild(h3);
+    li.appendChild(h3_1);
+    li.appendChild(h3_2);
+    li.appendChild(h2_1);
+    ul_1.appendChild(li);
+
+    /*
     for (let i = 0; i < countdownArray.length; i++) {
         var div = document.createElement('div');
 
@@ -150,9 +179,9 @@ function displayArraySched() {
         li.appendChild(h3_2);
         li.appendChild(h2_1);
         ul.appendChild(li);
-        div_1.append(ul);
-    }
+        div_1.append(ul);*/
 }
+
 
 var x = document.getElementsByClassName('instButton');
 for (var i = 0; i < x.length; i++) {

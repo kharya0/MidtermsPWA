@@ -54,10 +54,10 @@ main {
     font-size: 20px;
     padding: 10px;
     margin: auto;
-    border: 2px #e34d79 solid;
+    border: 2px transparent solid;
     cursor: pointer;
     width: 100%;
-    background-color: #ee4c7c;
+    background-color: #985e6d;
 }
 
 .main-buttons:hover {
@@ -70,14 +70,15 @@ main {
 }
 
 button {
-    color: white;
+    color: #4d2c3d;
     padding: 14px 20px;
     margin: 15px;
     cursor: pointer;
     width: 100%;
     font-family: EvolveMed;
-    border: 1px #eabdca solid;
-    background-color: #ee4c7c;
+    border: 1px white solid;
+    background-color: #ffb6c1;
+    border-radius: 10px;
 }
 
 button:hover {
@@ -97,7 +98,7 @@ nav p {
     text-align: center;
     margin: 1px;
     padding: 1px;
-    color: white;
+    color: #985e6d;
 }
 
 nav ul {
@@ -134,6 +135,7 @@ nav li {
     width: 100%;
     height: auto;
     margin: auto;
+    text-align: center;
 }
 
 
@@ -158,7 +160,7 @@ ul h2 {
 #instList button {
     width: 100%;
     margin: auto;
-    height: 100%s
+    height: 100%;
 }
 
 div { margin: 20px; }
@@ -167,4 +169,33 @@ div #dropdownContainer{
     margin: auto;
     font-family: Evolve;
     
+}
+
+select{
+    display: block;
+    margin:0 auto;
+
+}
+
+#scheds p{
+    font-family: Evolve;
+    margin: 0;
+    padding: 0;
+    font-size: 15px; 
+}
+
+#scheds ul{
+    background-color: #d8cdcd;
+    margin: 5px auto 5px auto;
+    padding: 2px;
+    width: 50%;
+}
+
+error {
+    font-family: Evolve;
+    font-size: 15px; 
+    background-color: #d8cdcd;
+    margin: 5px auto 5px auto;
+    padding: 2px;
+    width: 50%;
 }
