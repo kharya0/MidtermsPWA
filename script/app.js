@@ -68,9 +68,6 @@ function instStrings() {
         li.id = `inst${instArray[i].name}`;
         li.className = "inst";
 
-        var a = document.createElement('a');
-        //a.href = "../html/countdown.html";
-
         var button = document.createElement('button');
         button.id = `inst${instArray[i].name}Button`;
         button.className = "instButton";
@@ -91,8 +88,7 @@ function instStrings() {
         li.appendChild(h3);
         li.appendChild(h3_1);
         button.appendChild(li);
-        a.appendChild(button);
-        ul.appendChild(a);
+        ul.appendChild(button);
 
         button.onclick = function () {
             computeTimeLeft(instArray[i]);
@@ -104,7 +100,6 @@ if (document.getElementById('instContainer')) {
     instStrings();
 }
 
-var countdown = document.getElementById('countdown');
 var countdownArray = [];
 
 function computeTimeLeft(instArray) {
@@ -124,38 +119,38 @@ function computeTimeLeft(instArray) {
     console.log(instArray.name);
 
     countdownArray.push(instArray);
+    console.log(countdownArray);
 }
-console.log(countdownArray[0]);
 
-for (let i = 0; i < countdownArray[i]; i++) {
-    var ul = document.createElement('ul');
-    ul.id = "schedList";
+var ul_1 = document.getElementById('scheds');
 
-    var li = document.createElement('li');
-    li.className = "indivSched";
+function displayArraySched() {
+    for (let i = 0; i < countdownArray[i]; i++) {
+        var li = document.createElement('li');
+        li.className = "indivSched";
 
-    var h2 = document.createElement('h2');
-    h2.innerHTML = countdownArray[i].name;
-    h2.classList.add('instName');
+        var h2 = document.createElement('h2');
+        h2.innerHTML = countdownArray[i].name;
 
-    var h3 = document.createElement('h3');
-    h3_1.innerHTML = countdownArray[i].place;
-    h3_1.classList.add('instLoc');
+        var h3 = document.createElement('h3');
+        h3_1.innerHTML = countdownArray[i].place;
 
-    var h3_1 = document.createElement('h3');
-    h3.innerHTML = countdownArray[i].schedule;
-    h3.classList.add('instSched');
+        var h3_1 = document.createElement('h3');
+        h3.innerHTML = countdownArray[i].schedule;
 
-    var h3_2 = document.createElement('h3');
-    h3.innerHTML = countdownArray[i].date;
+        var h3_2 = document.createElement('h3');
+        h3.innerHTML = countdownArray[i].date;
 
-    var h2_1 = document.createElement('h2');
-    h2_1.innerHTML = countdownArray[i].countdown;
+        var h2_1 = document.createElement('h2');
+        h2_1.innerHTML = countdownArray[i].countdown;
 
-    li.appendChild(h2);
-    li.appendChild(h3);
-    li.appendChild(h3_1);
-    li.appendChild(h3_2);
-    ul.appendChild(li);
-    countdown.appendChild(ul);
+        li.appendChild(h2);
+        li.appendChild(h3);
+        li.appendChild(h3_1);
+        li.appendChild(h3_2);
+        li.appendChild(h2_1);
+        ul.appendChild(li);
+    }
 }
+
+displayArraySched();

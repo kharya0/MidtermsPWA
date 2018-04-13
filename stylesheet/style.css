@@ -15,7 +15,7 @@ header {
     padding-top: 50px;
 }
 
-header h1 {
+header h1, #mySchedule {
     font-family: ShineBright;
     font-size: 80px;
     text-align: center;
