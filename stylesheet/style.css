@@ -54,10 +54,10 @@ main {
     font-size: 20px;
     padding: 10px;
     margin: auto;
-    border: 2px #e34d79 solid;
+    border: 2px transparent solid;
     cursor: pointer;
     width: 100%;
-    background-color: #ee4c7c;
+    background-color: #985e6d;
 }
 
 .main-buttons:hover {
@@ -70,14 +70,14 @@ main {
 }
 
 button {
-    color: white;
+    color: #4d2c3d;
     padding: 14px 20px;
     margin: 15px;
     cursor: pointer;
     width: 100%;
     font-family: EvolveMed;
-    border: 1px #eabdca solid;
-    background-color: #ee4c7c;
+    border: 1px white solid;
+    background-color: #ffb6c1;
 }
 
 button:hover {
