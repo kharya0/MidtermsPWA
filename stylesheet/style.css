@@ -125,6 +125,7 @@ nav ul {
     width: 100%;
     height: auto;
     margin: auto;
+    text-align: center;
 }
 
 ul {
@@ -166,3 +167,10 @@ div #dropdownContainer{
     font-family: Evolve;
     
 }
+
+select{
+    display: block;
+    margin:0 auto;
+
+}
+
