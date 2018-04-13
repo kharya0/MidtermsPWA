@@ -70,7 +70,7 @@ function instStrings() {
 
         var button = document.createElement('button');
         button.id = `inst${instArray[i].name}Button`;
-        button.className = "instButton";
+        button.classList.add('instButton');
 
         var h2 = document.createElement('h2');
         h2.innerHTML = instArray[i].name;
@@ -91,7 +91,7 @@ function instStrings() {
         ul.appendChild(button);
 
         button.onclick = function () {
-            computeTimeLeft(instArray[i]);
+            setInterval(computeTimeLeft(instArray[i]), 1000);
         }
     }
 }
@@ -111,8 +111,9 @@ function computeTimeLeft(instArray) {
     var days = Math.floor(interval / (1000 * 60 * 60 * 24));
     var hours = Math.floor((interval % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutes = Math.floor((interval % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((interval % (1000 * 60)) / 1000);
     
-    instArray.countdown = days + "d " + hours + "h " + minutes + "m ";
+    instArray.countdown = days + "d " + hours + "h " + minutes + "m " + seconds +"s";
     
     console.log(days + 'd ' + hours + 'h ' + minutes + 'm ');
     console.log(arrayDate);
@@ -122,10 +123,12 @@ function computeTimeLeft(instArray) {
     console.log(countdownArray);
 }
 
-var ul_1 = document.getElementById('scheds');
+var div_1 = document.getElementById('scheds');
 
 function displayArraySched() {
-    for (let i = 0; i < countdownArray[i]; i++) {
+    for (let i = 0; i < countdownArray.length; i++) {
+        var ul = document.createElement('ul');
+        
         var li = document.createElement('li');
         li.className = "indivSched";
 
@@ -133,13 +136,13 @@ function displayArraySched() {
         h2.innerHTML = countdownArray[i].name;
 
         var h3 = document.createElement('h3');
-        h3_1.innerHTML = countdownArray[i].place;
+        h3.innerHTML = countdownArray[i].place;
 
         var h3_1 = document.createElement('h3');
-        h3.innerHTML = countdownArray[i].schedule;
+        h3_1.innerHTML = countdownArray[i].schedule;
 
         var h3_2 = document.createElement('h3');
-        h3.innerHTML = countdownArray[i].date;
+        h3_2.innerHTML = countdownArray[i].date;
 
         var h2_1 = document.createElement('h2');
         h2_1.innerHTML = countdownArray[i].countdown;
@@ -150,7 +153,11 @@ function displayArraySched() {
         li.appendChild(h3_2);
         li.appendChild(h2_1);
         ul.appendChild(li);
+        div_1.append(ul);
     }
 }
 
-displayArraySched();
+var x = document.getElementsByClassName('instButton');
+for (var i = 0; i < x.length; i++) {
+    x[i].addEventListener('click', displayArraySched, false);
+}
