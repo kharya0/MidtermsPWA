@@ -103,74 +103,87 @@ if (document.getElementById('instContainer')) {
 var countdownArray = [];
 
 function computeTimeLeft(instArray) {
+    var currentTime = new Date();
+    var arrayDate = instArray.date;
+    var chosenDate = document.getElementById("date").value;
+    arrayDate.setDate(chosenDate);
+    var interval = arrayDate - currentTime;
+    var days = Math.floor(interval / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((interval % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((interval % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((interval % (1000 * 60)) / 1000);
 
-    setInterval(function () {
-        var currentTime = new Date();
-        var arrayDate = instArray.date;
-        var chosenDate = document.getElementById("date").value;
-        arrayDate.setDate(chosenDate);
-        var interval = arrayDate - currentTime;
-        var days = Math.floor(interval / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((interval % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((interval % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((interval % (1000 * 60)) / 1000);
+    instArray.countdown = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
 
-        instArray.countdown = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+    console.log(days + 'd ' + hours + 'h ' + minutes + 'm ');
+    console.log(arrayDate);
+    console.log(instArray.name);
 
-        countdownArray.push(instArray);
-
-
-        if (interval < 0) {
-            clearInterval(x);
-            document.getElementById('scheds-p').innerHTML = "Your selected Zumba sessions is already over. View the daily schedule, to track another Zumba session.";
-        }
-    }, 1000);
+    countdownArray.push(instArray);
+    console.log(countdownArray);
 }
 
-var div_1 = document.getElementById('scheds');
+var ul_1 = document.getElementById('schedList');
 
 function displayArraySched() {
-    alert("Your selected Zumba Schedule is already saved in My Schedule.");
+    var x = countdownArray.length;
+    var y = x - 1;
+    console.log(countdownArray[y].name);
 
-    /*for (let i = 0; i < countdownArray.length; i++) {
+    var li = document.createElement('li');
 
+    var h2 = document.createElement('p');
+    h2.innerHTML = countdownArray[y].name;
 
-        var ul = document.createElement('ul');
+    var h3 = document.createElement('p');
+    h3.innerHTML = countdownArray[y].place;
 
-        var li = document.createElement('li');
-        li.className = "indivSched";
+    var h3_1 = document.createElement('p');
+    h3_1.innerHTML = countdownArray[y].schedule;
 
-        var p1 = document.createElement('p');
-        p1.innerHTML = countdownArray[i].name;
+    var h3_2 = document.createElement('p');
+    h3_2.innerHTML = countdownArray[y].date;
 
-        var p2 = document.createElement('p');
-        p2.innerHTML = countdownArray[i].place;
+    var h2_1 = document.createElement('p');
+    h2_1.innerHTML = countdownArray[y].countdown;
 
-        var p3 = document.createElement('p');
-        p3.innerHTML = countdownArray[i].schedule;
+    li.appendChild(h2);
+    li.appendChild(h3);
+    li.appendChild(h3_1);
+    li.appendChild(h3_2);
+    li.appendChild(h2_1);
+    ul_1.appendChild(li);
 
-        var p4 = document.createElement('p');
-        p4.innerHTML = countdownArray[i].date;
+    /*
+    for (let i = 0; i < countdownArray.length; i++) {
+        var div = document.createElement('div');
 
-        var p5 = document.createElement('p');
-        p5.innerHTML = countdownArray[i].countdown;
+        var h2 = document.createElement('p');
+        h2.innerHTML = countdownArray[i].name;
 
-        li.appendChild(p1);
-        li.appendChild(p2);
-        li.appendChild(p3);
-        li.appendChild(p4);
-        li.appendChild(p5);
+        var h3 = document.createElement('p');
+        h3.innerHTML = countdownArray[i].place;
+
+        var h3_1 = document.createElement('p');
+        h3_1.innerHTML = countdownArray[i].schedule;
+
+        var h3_2 = document.createElement('p');
+        h3_2.innerHTML = countdownArray[i].date;
+
+        var h2_1 = document.createElement('p');
+        h2_1.innerHTML = countdownArray[i].countdown;
+
+        li.appendChild(h2);
+        li.appendChild(h3);
+        li.appendChild(h3_1);
+        li.appendChild(h3_2);
+        li.appendChild(h2_1);
         ul.appendChild(li);
         div_1.append(ul);*/
-
-    if (typeof (Storage) !== "undefined") {
-        // Store
-        localStorage.setItem("countdown", "Your selected Zumba sessions is already over. View the daily schedule, to track another Zumba session.");
-        // Retrieve
-        document.getElementById("scheds").innerHTML = localStorage.getItem("countdown");
-    } else {
-        document.getElementById("scheds").innerHTML = "Sorry, your browser does not support Web Storage...";
-    }
 }
 
+
 var x = document.getElementsByClassName('instButton');
+for (var i = 0; i < x.length; i++) {
+    x[i].addEventListener('click', displayArraySched, false);
+}
