@@ -14,60 +14,59 @@
 <body>
 
     <nav>
-        <ul>
-            <li><a href="#main-content"><button id="home-button"><img src="stylesheet/images/home-icon.png"><p>Home</p></button></a></li>
-            <li><a href="#schedule-content"><button id="schedule-button"><img src="stylesheet/images/daily-icon.png"><p>My Schedule</p></button></a></li>
-            <li><a href="#mySchedule"><button id="schedule-button"><img src="stylesheet/images/schedule-icon.png"><p>My Schedule</p></button></a></li>
-        </ul>
+        <a href="#main-content" class="active"><button id="home-button"><img src="stylesheet/images/home-icon.png"><p>Home</p></button></a>
+        <a href="#schedule-content"><button id="schedule-button"><img src="stylesheet/images/daily-icon.png"><p>Daily Schedule</p></button></a>
+        <a href="#mySchedule"><button id="schedule-button"><img src="stylesheet/images/schedule-icon.png"><p>My Schedule</p></button></a>
     </nav>
 
-    <div id="main-content">
-        <header>
-            <h1>Baguio Zumba Sessions</h1>
-            <h2>Burnham Park</h2>
-        </header>
+    <div content>
+        <div id="main-content">
+            <header>
+                <h1>Baguio Zumba Sessions</h1>
+                <h2>Burnham Park</h2>
+            </header>
 
-        <main>
-            <p id="introduction">
-                Choose from 12 Zumba sessions at Burnharm Park everyday.
-                <br>Dance for a happier and healthier you! Click on the button below to view daily schedule. Find out your Zumba location and instructor's name.
-                <br>Bookmark the ZumBaguio website to track your schedule!
-            </p>
-            
-            <div id="buttons-container">
-                <a href="#schedule-content">
+            <main>
+                <p id="introduction">
+                    Choose from 12 Zumba sessions at Burnharm Park everyday.
+                    <br>Dance for a happier and healthier you! Click on the button below to view daily schedule. Find out your Zumba location and instructor's name.
+                    <br>Bookmark the ZumBaguio website to track your schedule!
+                </p>
+
+                <div id="buttons-container">
+                    <a href="#schedule-content">
                 <button class="main-buttons" id="dancerButton">View Daily Schedule</button>
             </a>
-                <a href="#mySchedule">
+                    <a href="#mySchedule">
                 <button class="main-buttons" id="schedButton">My Schedule</button>
             </a>
+                </div>
+            </main>
+        </div>
+
+        <div id="schedule-content">
+            <header>
+                <h1>Schedule for Today</h1>
+                <p>Choose a schedule for tomorrow and know how much time you have left before your chosen class starts.</p>
+            </header>
+
+            <div id="instContainer">
+                <ul id="instList">
+                </ul>
             </div>
-        </main>
-    </div>
 
-    <div id="schedule-content">
-        <header>
-            <h1>Schedule for Today</h1>
-            <p>Choose a schedule for tomorrow and know how much time you have left before your chosen class starts.</p>
-        </header>
-        
-        <div id="instContainer">
-            <ul id="instList">
-            </ul>
         </div>
-        
-    </div>
-    
-    <div id="mySchedule">
-        <header>
-            <h1>My Schedule</h1>
-        </header>
-        <div id="scheds">
-            <ul id="schedList"></ul>
+
+        <div id="mySchedule">
+            <header>
+                <h1>My Schedule</h1>
+            </header>
+            <div id="scheds">
+                <ul id="schedList"></ul>
+            </div>
         </div>
     </div>
-
-
+  
 </body>
 
 </html>
