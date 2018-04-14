@@ -16,7 +16,7 @@ li {
 
 #nav {
     overflow: hidden;
-    background-color: #ee4c7c;
+    background-color: #874c62;
     width: 100%;
     margin: auto;
     list-style: none;
@@ -114,7 +114,7 @@ button:hover {
 #schedule-button {
     width: 100%;
     height: 100%;
-    border: 2px solid #ee4c7c;
+    border: 2px white solid;
 }
 
 nav p {
@@ -134,7 +134,7 @@ nav p {
     width: 100%;
 }
 
-nav li {
+	nav li {
     float:left;
     width: 33%;
 }*/
