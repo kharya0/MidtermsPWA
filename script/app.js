@@ -1,20 +1,4 @@
-var dateArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
 
-function selectDate() {
-    var select = document.getElementById('date');
-
-    for (let i = 0; i < dateArray.length; i++) {
-        var option = document.createElement('option');
-        option.innerHTML = dateArray[i];
-        option.value = dateArray[i];
-
-        select.appendChild(option);
-    }
-}
-
-if (document.getElementById('dropdownContainer')) {
-    selectDate();
-}
 
 var sched1 = "6:00 - 7:00";
 var sched2 = "7:00 - 8:00";
@@ -23,17 +7,13 @@ var locPark = "Near the Children's Park";
 var locSolibao = "Near Solibao";
 var locRose = "Near the Rose Garden";
 
-var chosenDay;
-if (document.getElementById("date")) {
-    chosenDay = document.getElementById("date").value;
-}
-var dateSched = new Date(chosenDay);
+var dateSched = new Date();
 
 var date1 = new Date("April 6, 2018 6:00:00");
-date1.setDate(dateSched.getDate());
+date1.setDate((dateSched.getDate()) + 1);
 
 var date2 = new Date("April 6, 2018 7:00:00");
-date2.setDate(dateSched.getDate());
+date2.setDate((dateSched.getDate()) + 1);
 
 var countdown = "";
 
@@ -105,8 +85,6 @@ var countdownArray = [];
 function computeTimeLeft(instArray) {
     var currentTime = new Date();
     var arrayDate = instArray.date;
-    var chosenDate = document.getElementById("date").value;
-    arrayDate.setDate(chosenDate);
     var interval = arrayDate - currentTime;
     var days = Math.floor(interval / (1000 * 60 * 60 * 24));
     var hours = Math.floor((interval % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -126,60 +104,22 @@ function computeTimeLeft(instArray) {
 var ul_1 = document.getElementById('schedList');
 
 function displayArraySched() {
+    var arr = [];
     var x = countdownArray.length;
     var y = x - 1;
     console.log(countdownArray[y].name);
 
-    var li = document.createElement('li');
+    arr.push(`<li>
+    <p>${countdownArray[y].name}</p>
+    <p>${countdownArray[y].place}</p>
+    <p>${countdownArray[y].schedule}</p>
+    <p>${countdownArray[y].date}</p>
+    <p>${countdownArray[y].countdown}</p>
+</li>`)
 
-    var h2 = document.createElement('p');
-    h2.innerHTML = countdownArray[y].name;
-
-    var h3 = document.createElement('p');
-    h3.innerHTML = countdownArray[y].place;
-
-    var h3_1 = document.createElement('p');
-    h3_1.innerHTML = countdownArray[y].schedule;
-
-    var h3_2 = document.createElement('p');
-    h3_2.innerHTML = countdownArray[y].date;
-
-    var h2_1 = document.createElement('p');
-    h2_1.innerHTML = countdownArray[y].countdown;
-
-    li.appendChild(h2);
-    li.appendChild(h3);
-    li.appendChild(h3_1);
-    li.appendChild(h3_2);
-    li.appendChild(h2_1);
-    ul_1.appendChild(li);
-
-    /*
-    for (let i = 0; i < countdownArray.length; i++) {
-        var div = document.createElement('div');
-
-        var h2 = document.createElement('p');
-        h2.innerHTML = countdownArray[i].name;
-
-        var h3 = document.createElement('p');
-        h3.innerHTML = countdownArray[i].place;
-
-        var h3_1 = document.createElement('p');
-        h3_1.innerHTML = countdownArray[i].schedule;
-
-        var h3_2 = document.createElement('p');
-        h3_2.innerHTML = countdownArray[i].date;
-
-        var h2_1 = document.createElement('p');
-        h2_1.innerHTML = countdownArray[i].countdown;
-
-        li.appendChild(h2);
-        li.appendChild(h3);
-        li.appendChild(h3_1);
-        li.appendChild(h3_2);
-        li.appendChild(h2_1);
-        ul.appendChild(li);
-        div_1.append(ul);*/
+    var x_1 = arr.length;
+    var y_1 = x_1 - 1;
+    ul_1.innerHTML = arr.join(' ');
 }
 
 
