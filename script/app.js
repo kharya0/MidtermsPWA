@@ -10,7 +10,6 @@ if ('serviceWorker' in navigator) {
 
 Notification.requestPermission();
 
-    
 var sched1 = "6:00 - 7:00";
 var sched2 = "7:00 - 8:00";
 var locSkating = "Near the Skating Rink";
@@ -142,7 +141,7 @@ function displayArraySched() {
 var x = document.getElementsByClassName('instButton');
 for (var i = 0; i < x.length; i++) {
     x[i].addEventListener('click', displayArraySched, false);
-    x[i].addEventListener('click', displayNotif);
+    x[i].addEventListener('click', displayNotif, false);
 }
 
 storage();
