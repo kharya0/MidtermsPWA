@@ -7,6 +7,9 @@ if ('serviceWorker' in navigator) {
         console.log('Service Worker failed to register', err);
     })
 }
+
+Notification.requestPermission();
+
     
 var sched1 = "6:00 - 7:00";
 var sched2 = "7:00 - 8:00";
@@ -139,6 +142,7 @@ function displayArraySched() {
 var x = document.getElementsByClassName('instButton');
 for (var i = 0; i < x.length; i++) {
     x[i].addEventListener('click', displayArraySched, false);
+    x[i].addEventListener('click', displayNotif);
 }
 
 storage();
@@ -151,4 +155,9 @@ function storage() {
     ul_1.innerHTML = storedArray;
 }
 
-
+function displayNotif() {
+    new Notification ("ZumBaguio!", {
+        icon: "./stylesheet/images/pinkpuno.png",
+        body: "You've added a new schedule for tomorrow's zumba!"
+    });
+}
