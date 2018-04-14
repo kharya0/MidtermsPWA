@@ -1,5 +1,13 @@
-
-
+if ('serviceWorker' in navigator) {
+    
+    navigator.serviceWorker.register('./service-worker.js', { scope: './'}).then(function(registration){
+        console.log("Service Worker Registered!");
+    })
+    .catch(function(err){
+        console.log('Service Worker failed to register', err);
+    })
+}
+    
 var sched1 = "6:00 - 7:00";
 var sched2 = "7:00 - 8:00";
 var locSkating = "Near the Skating Rink";
@@ -91,7 +99,7 @@ function computeTimeLeft(instArray) {
     var minutes = Math.floor((interval % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((interval % (1000 * 60)) / 1000);
 
-    instArray.countdown = hours + "h";
+    instArray.countdown = hours + "h until next zumba session.";
 
     console.log(days + 'd ' + hours + 'h ' + minutes + 'm ');
     console.log(arrayDate);
