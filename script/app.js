@@ -91,7 +91,7 @@ function computeTimeLeft(instArray) {
     var minutes = Math.floor((interval % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((interval % (1000 * 60)) / 1000);
 
-    instArray.countdown = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+    instArray.countdown = hours + "h";
 
     console.log(days + 'd ' + hours + 'h ' + minutes + 'm ');
     console.log(arrayDate);
@@ -102,28 +102,43 @@ function computeTimeLeft(instArray) {
 }
 
 var ul_1 = document.getElementById('schedList');
+var JSONarr;
+var arr = [];
+var storedArray;
 
 function displayArraySched() {
-    var arr = [];
     var x = countdownArray.length;
     var y = x - 1;
-    console.log(countdownArray[y].name);
 
     arr.push(`<li>
-    <p>${countdownArray[y].name}</p>
+    <p id="name">${countdownArray[y].name}</p>
     <p>${countdownArray[y].place}</p>
     <p>${countdownArray[y].schedule}</p>
-    <p>${countdownArray[y].date}</p>
     <p>${countdownArray[y].countdown}</p>
 </li>`)
 
     var x_1 = arr.length;
     var y_1 = x_1 - 1;
-    ul_1.innerHTML = arr.join(' ');
+    ul_1.innerHTML = arr[y];
+    localStorage.clear();
+    console.log(localStorage);
+    localStorage.setItem('arr[y]', JSON.stringify(arr[y]));
+    console.log(localStorage)
+    
+    console.log(arr.length);
 }
-
 
 var x = document.getElementsByClassName('instButton');
 for (var i = 0; i < x.length; i++) {
     x[i].addEventListener('click', displayArraySched, false);
+}
+
+storage();
+
+function storage() {
+    var x = arr.length;
+    var y = x - 1;
+    storedArray = JSON.parse(localStorage.getItem('arr[y]'));
+    
+    ul_1.innerHTML = storedArray;
 }
