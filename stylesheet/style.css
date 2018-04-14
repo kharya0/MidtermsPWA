@@ -1,4 +1,3 @@
-
 body {
     color: #5d001e;
     background-color: #e3e2df;
@@ -11,6 +10,36 @@ body {
     margin: 0;
 }
 
+li{
+    list-style: none;
+}
+nav {
+    overflow: hidden;
+    background-color: #ee4c7c;
+    width: 100%;
+    margin: auto;
+}
+
+nav a {
+    float: left;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+.sticky + content {
+  padding-top: 60px;
+}
+
+content{
+    padding: 16px;
+}
 
 header {
     padding-top: 50px;
@@ -86,9 +115,7 @@ button:hover {
 }
 
 
-
-html body nav ul li a #home-button,
-#schedule-button {
+#home-button, #schedule-button {
     width: 100%;
     height: 100%;
     border: 2px solid #ee4c7c;
@@ -101,20 +128,20 @@ nav p {
     color: #985e6d;
 }
 
-nav ul {
+/*nav ul {
     list-style-type: none;
-    margin: 0;
+    margin: auto;
     padding: 0;
     overflow: hidden;
     position: sticky;
     top: 0;
     width: 100%;
-    background-color: #ee4c7c;
 }
 
 nav li {
     float:left;
-}
+    width: 33%;
+}*/
 
 @font-face {
     font-family: ShineBright;
@@ -131,7 +158,8 @@ nav li {
     src: url("fonts/MADE Evolve Sans Medium (PERSONAL USE).otf");
 }
 
-#instContainer, #dropdownContainer {
+#instContainer,
+#dropdownContainer {
     width: 100%;
     height: auto;
     margin: auto;
@@ -153,7 +181,7 @@ ul h2 {
     list-style: none;
 }
 
-#schedule-content{
+#schedule-content {
     width: auto;
 }
 
@@ -163,28 +191,31 @@ ul h2 {
     height: 100%;
 }
 
-div { margin: 20px; }
-div #dropdownContainer{
+div {
+    margin: 20px;
+}
+
+div #dropdownContainer {
     width: 100%;
     margin: auto;
     font-family: Evolve;
-    
+
 }
 
-select{
+select {
     display: block;
-    margin:0 auto;
+    margin: 0 auto;
 
 }
 
-#scheds p{
+#scheds p {
     font-family: Evolve;
     margin: 0;
     padding: 0;
-    font-size: 15px; 
+    font-size: 15px;
 }
 
-#scheds ul{
+#scheds ul {
     background-color: #d8cdcd;
     margin: 5px auto 5px auto;
     padding: 2px;
@@ -193,7 +224,7 @@ select{
 
 error {
     font-family: Evolve;
-    font-size: 15px; 
+    font-size: 15px;
     background-color: #d8cdcd;
     margin: 5px auto 5px auto;
     padding: 2px;
